@@ -1,8 +1,8 @@
 package com.bst;
 
 /**
- * @author jayeshkumar
- * Top most node is called root.Using this we traverse the binary tree.
+ * @author jayeshkumar Top most node is called root.Using this we traverse the
+ *         binary tree.
  * 
  */
 public class MyBinarySearchTree<K extends Comparable<K>> {
@@ -11,6 +11,7 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 
 	/**
 	 * method to add a new key to the binary search tree
+	 * 
 	 * @param key element to be added
 	 */
 	public void add(K key) {
@@ -19,8 +20,9 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 
 	/**
 	 * method containing steps of insertion
+	 * 
 	 * @param current node where the element is to be added
-	 * @param key element to be added
+	 * @param key     element to be added
 	 * @return root of the tree
 	 */
 	private MyBinaryNode<K> addRecursively(MyBinaryNode<K> current, K key) {
@@ -42,21 +44,21 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 	/**
 	 * @param node root of the tree/subtree
 	 * 
-	 *   Algorithm Preorder(tree) 
-	 *   1. Visit the root. 
-	 *   2. Traverse the left subtree, i.e., call Preorder(left-subtree)
-	 *   3. Traverse the right subtree, i.e., call Preorder(right-subtree)
-	 *             
+	 *             Algorithm Preorder(tree) 1. Visit the root. 2. Traverse the left
+	 *             subtree, i.e., call Preorder(left-subtree) 3. Traverse the right
+	 *             subtree, i.e., call Preorder(right-subtree)
+	 * 
 	 */
 	void printPreorder(MyBinaryNode<K> node) {
 		if (node == null)
 			return;
 
-		System.out.print(node.key + "-->");
+		System.out.print(node.key + "  ");
 
 		printPreorder(node.left);
 
 		printPreorder(node.right);
+
 	}
 
 	/**
@@ -64,6 +66,31 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 	 */
 	void print() {
 		printPreorder(root);
+		System.out.println();
+	}
+
+	/**
+	 * method to get the number of elements in the tree
+	 * 
+	 * @return size of the tree
+	 */
+	public int getSize() {
+		return getSizeRecursive(root);
+	}
+
+	/**
+	 * Method which actually consisting of steps
+	 * 
+	 * @param current = root of tree/subtree
+	 * @return size of the treegit branch
+	 * 
+	 */
+	private int getSizeRecursive(MyBinaryNode<K> current) {
+		if (current == null) {
+			return 0;
+		}
+		return 1 + getSizeRecursive(current.left) + getSizeRecursive(current.right);
+
 	}
 
 }
