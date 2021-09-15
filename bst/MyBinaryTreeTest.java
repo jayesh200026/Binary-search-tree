@@ -18,6 +18,8 @@ public class MyBinaryTreeTest {
 		myBinaryTree.add(67);
 		System.out.println("size of the binary search tree is " + myBinaryTree.getSize());
 		myBinaryTree.print();
+		myBinaryTree.search(95);
+		myBinaryTree.search(100);
 
 	}
 
