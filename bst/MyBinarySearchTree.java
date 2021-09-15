@@ -93,4 +93,37 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 
 	}
 
+	/**
+	 * method to search for a key in binary search tree
+	 * 
+	 * @param key element to be searched
+	 */
+	public void search(K key) {
+		searchNode(root, key);
+	}
+
+	/**
+	 * actual method to implement search operation
+	 * 
+	 * @param current Node of tree
+	 * @param key     element to be searched
+	 */
+	private void searchNode(MyBinaryNode<K> current, K key) {
+		if (current == null) {
+			System.out.println(key + " not found");
+			return;
+		}
+		int compResult = key.compareTo(current.key);
+		if (compResult == 0) {
+			System.out.println(key + " Found");
+			return;
+		}
+		if (compResult < 0) {
+			searchNode(current.left, key);
+		} else {
+			searchNode(current.right, key);
+		}
+
+	}
+
 }
